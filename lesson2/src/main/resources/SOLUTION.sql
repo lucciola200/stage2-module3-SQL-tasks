@@ -2,7 +2,8 @@ INSERT INTO Student (id, name, birthday, groupnumber) VALUES (1, 'John', CURRENT
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (2, 'Chris', CURRENT_DATE(), 1);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (3, 'Carl', CURRENT_DATE(), 1);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (4, 'Oliver', CURRENT_DATE(), 2);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (5, 'James', CURRENT_DATE(), 2), (6, 'Lucas', CURRENT_DATE(), 2);
+INSERT INTO Student (id, name, birthday, groupnumber) VALUES (5, 'James', CURRENT_DATE(), 2)
+INSERT INTO Student (id, name, birthday, groupnumber) VALUES (6, 'Lucas', CURRENT_DATE(), 2);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (7, 'Henry', CURRENT_DATE(), 2);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (8, 'Jacob', CURRENT_DATE(), 3);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (9, 'Logan', CURRENT_DATE(), 3);
@@ -12,13 +13,15 @@ INSERT INTO Student (id, name, birthday, groupnumber) VALUES (12, 'Ethan', CURRE
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (13, 'Mia', CURRENT_DATE(), 5);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (14, 'Noah', CURRENT_DATE(), 5);
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (15, 'Sophia', CURRENT_DATE(), 5);
-INSERT INTO Subject (id, name, description, grade) VALUES (1, 'Art', 'Art and music for 1 grade', 1),
+INSERT INTO Subject (id, name, description, grade) VALUES (1, 'Art', 'Art and music for 1 grade', 1);
 INSERT INTO Subject (id, name, description, grade) VALUES (2, 'Geography', 'Geography and history for 2 grade', 2);
 INSERT INTO Subject (id, name, description, grade) VALUES (3, 'PE', 'PE and math for 3 grade', 3);
 INSERT INTO Subject (id, name, description, grade) VALUES (4, 'Science', 'Science and IT for 4 grade', 4);
 INSERT INTO Subject (id, name, description, grade) VALUES (5, 'Music', 'Music for 5 grade', 5);
 INSERT INTO Subject (id, name, description, grade) VALUES (6, 'Literature', 'Literature for 5 grade', 5);
-INSERT INTO PaymentType (id, name) VALUES (1, 'DAILY'), (2, 'WEEKLY'), (3, 'MONTHLY');
+INSERT INTO PaymentType (id, name) VALUES (1, 'DAILY');
+INSERT INTO PaymentType (id, name) VALUES (2, 'WEEKLY');
+INSERT INTO PaymentType (id, name) VALUES (3, 'MONTHLY');
 INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (1, (select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'John'));
 INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (2, (select id from PAYMENTTYPE WHERE name = 'MONTHLY'), (select id from Student WHERE name = 'Oliver'));
 INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (3, (select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'Henry'));
