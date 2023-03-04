@@ -26,13 +26,14 @@ INSERT INTO PaymentType (id, name) VALUES (1, 'DAILY');
 INSERT INTO PaymentType (id, name) VALUES (2, 'WEEKLY');
 INSERT INTO PaymentType (id, name) VALUES (3, 'MONTHLY');
 
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (1, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'John'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (2, (SELECT id FROM PAYMENTTYPE WHERE name = 'MONTHLY'), (SELECT id FROM Student WHERE name = 'Oliver'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (3, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Henry'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (4, (SELECT id FROM PAYMENTTYPE WHERE name = 'DAILY'), (SELECT id FROM Student WHERE name = 'James'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (5, (SELECT id FROM PAYMENTTYPE WHERE name = 'MONTHLY'), (SELECT id FROM Student WHERE name = 'Henry'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (6, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Jacob'));
-INSERT INTO PAYMENT (id, type_id, student_id) VALUES (7, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Logan'));
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (1, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'John'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (2, (SELECT id FROM PAYMENTTYPE WHERE name = 'MONTHLY'), (SELECT id FROM Student WHERE name = 'Oliver'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (3, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Henry'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (4, (SELECT id FROM PAYMENTTYPE WHERE name = 'DAILY'), (SELECT id FROM Student WHERE name = 'James'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (5, (SELECT id FROM PAYMENTTYPE WHERE name = 'MONTHLY'), (SELECT id FROM Student WHERE name = 'Henry'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (6, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Jacob'), 125.00, '2022-03-04 10:30:00');
+INSERT INTO PAYMENT (id, type_id, student_id, amount, amount, payment_date) VALUES (7, (SELECT id FROM PAYMENTTYPE WHERE name = 'WEEKLY'), (SELECT id FROM Student WHERE name = 'Logan'), 125.00, '2022-03-04 10:30:00');
+
 INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (1, (SELECT id FROM Student WHERE name='Chris'), (SELECT id FROM Subject WHERE name='Art'), 8);
 INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (2, (SELECT id FROM Student WHERE name='Oliver'), (SELECT id FROM Subject WHERE name='History'), 5);
 INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (3, (SELECT id FROM Student WHERE name='James'), (SELECT id FROM Subject WHERE name='Geography'), 9);
