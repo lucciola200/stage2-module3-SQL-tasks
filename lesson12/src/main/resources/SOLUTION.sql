@@ -1,9 +1,14 @@
-DELETE FROM Payment WHERE student_id IN (SELECT id FROM Student WHERE groupnumber >= 4);
-DELETE FROM Mark WHERE student_id IN (SELECT id FROM Student WHERE groupnumber >= 4);
-DELETE FROM Student WHERE groupnumber >= 4;
-DELETE FROM Mark WHERE student_id IN (SELECT id FROM Student WHERE groupnumber < 4);
-DELETE FROM Student WHERE groupnumber < 4;
-DELETE FROM Payment WHERE type_id NOT IN (SELECT id FROM PaymentType WHERE name = 'Daily');
-DELETE FROM PaymentType WHERE name = 'Daily';
-DELETE FROM Mark WHERE mark in (0,6);
+delete from student where id in (select DISTINCT m.student_id from mark as m
+    INNER JOIN  Subject as s
+    ON m.subject_id = s.id
+    WHERE s.grade >= 4);
 
+
+delete from student where id in
+                          (select student_id from MARK
+                                             GROUP BY student_id, mark
+                                             HAVING COUNT(mark) >= 1 AND mark < 4);
+
+delete from paymenttype where name = 'DAILY';
+
+delete from mark where mark < 7;

@@ -1,38 +1,66 @@
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (1, 'John', CURRENT_DATE(), 1);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (2, 'Chris', CURRENT_DATE(), 1);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (3, 'Carl', CURRENT_DATE(), 1);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (4, 'Oliver', CURRENT_DATE(), 2);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (5, 'James', CURRENT_DATE(), 2)
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (6, 'Lucas', CURRENT_DATE(), 2);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (7, 'Henry', CURRENT_DATE(), 2);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (8, 'Jacob', CURRENT_DATE(), 3);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (9, 'Logan', CURRENT_DATE(), 3);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (10, 'Emily', CURRENT_DATE(), 4);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (11, 'Ava', CURRENT_DATE(), 4);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (12, 'Ethan', CURRENT_DATE(), 4);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (13, 'Mia', CURRENT_DATE(), 5);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (14, 'Noah', CURRENT_DATE(), 5);
-INSERT INTO Student (id, name, birthday, groupnumber) VALUES (15, 'Sophia', CURRENT_DATE(), 5);
-INSERT INTO Subject (id, name, description, grade) VALUES (1, 'Art', 'Art and music for 1 grade', 1);
-INSERT INTO Subject (id, name, description, grade) VALUES (2, 'Geography', 'Geography and history for 2 grade', 2);
-INSERT INTO Subject (id, name, description, grade) VALUES (3, 'PE', 'PE and math for 3 grade', 3);
-INSERT INTO Subject (id, name, description, grade) VALUES (4, 'Science', 'Science and IT for 4 grade', 4);
-INSERT INTO Subject (id, name, description, grade) VALUES (5, 'Music', 'Music for 5 grade', 5);
-INSERT INTO Subject (id, name, description, grade) VALUES (6, 'Literature', 'Literature for 5 grade', 5);
-INSERT INTO PaymentType (id, name) VALUES (1, 'DAILY');
-INSERT INTO PaymentType (id, name) VALUES (2, 'WEEKLY');
-INSERT INTO PaymentType (id, name) VALUES (3, 'MONTHLY');
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (1, 2, (select id from Student WHERE name = 'John'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (2, 3, (select id from Student WHERE name = 'Oliver'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (3, 2, (select id from Student WHERE name = 'Henry'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (4, 1, (select id from Student WHERE name = 'James'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (5, 3, (select id from Student WHERE name = 'Henry'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (6, 2, (select id from Student WHERE name = 'Jacob'));
-INSERT INTO PAYMENT (id,'type_id', 'student_id') VALUES (7, 2, (select id from Student WHERE name = 'Logan'));
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (1, (select id from Student where name='Chris'), (select id from Subject where name='Art'), 8);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (2, (select id from Student where name='Oliver'), (select id from Subject where name='History'), 5);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (3, (select id from Student where name='James'), (select id from Subject where name='Geography'), 9);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (4, (select id from Student where name='Jacob'), (select id from Subject where name='Math'), 4);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (5, (select id from Student where name='Logan'), (select id from Subject where name='PE'), 9);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (6, (select id from Student where name='Emily'), (select id from Subject where name='Computer Science'), 9);
-INSERT INTO MARK (id, student_id, subject_id, mark) VALUES (7, (select id from Student where name='Ava'), (select id from Subject where name='Web Development'), 9);
+/*  STUDENT*/
+INSERT INTO Student(name, groupnumber) VALUES ('John', 1);
+INSERT INTO Student(name, groupnumber) VALUES ('Chris', 1);
+INSERT INTO Student(name, groupnumber) VALUES ('Carl', 1);
+
+INSERT INTO Student(name, groupnumber) VALUES ('Oliver' ,2);
+INSERT INTO Student(name, groupnumber) VALUES ('James', 2);
+INSERT INTO Student(name, groupnumber) VALUES ('Lucas', 2);
+INSERT INTO Student(name, groupnumber) VALUES ('Henry', 2);
+
+INSERT INTO Student(name, groupnumber) VALUES ('Jacob' ,3);
+INSERT INTO Student(name, groupnumber) VALUES ('Logan', 3);
+
+INSERT INTO Student(name, groupnumber) VALUES ('Ava', 4);
+INSERT INTO Student(name, groupnumber) VALUES ('Anna', 4);
+INSERT INTO Student(name, groupnumber) VALUES ('Emilie', 4);
+INSERT INTO Student(name, groupnumber) VALUES ('Bob', 4);
+
+INSERT INTO Student(name, groupnumber) VALUES ('Ben' ,5);
+INSERT INTO Student(name, groupnumber) VALUES ('Cate', 5);
+INSERT INTO Student(name, groupnumber) VALUES ('Dany', 5);
+INSERT INTO Student(name, groupnumber) VALUES ('Ika', 5);
+
+INSERT INTO SUBJECT (name, grade) VALUES ('Art', 1);
+INSERT INTO SUBJECT (name, grade) VALUES ('Music', 1);
+INSERT INTO SUBJECT (name, grade) VALUES ('Geography', 2);
+INSERT INTO SUBJECT (name, grade) VALUES ('History', 2);
+INSERT INTO SUBJECT (name, grade) VALUES ('PE', 3);
+INSERT INTO SUBJECT (name, grade) VALUES ('Math', 3);
+INSERT INTO SUBJECT (name, grade) VALUES ('Science', 4);
+INSERT INTO SUBJECT (name, grade) VALUES ('IT', 4);
+INSERT INTO SUBJECT (name, grade) VALUES ('Computer Science', 5);
+INSERT INTO SUBJECT (name, grade) VALUES ('Web Development', 5);
+
+INSERT INTO PAYMENTTYPE (name) VALUES ('DAILY');
+INSERT INTO PAYMENTTYPE (name) VALUES ('WEEKLY');
+INSERT INTO PAYMENTTYPE (name) VALUES ('MONTHLY');
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'John'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'MONTHLY'), (select id from Student WHERE name = 'Oliver'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'Henry'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'DAILY'), (select id from Student WHERE name = 'James'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'MONTHLY'), (select id from Student WHERE name = 'Anna'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'Ava'));
+
+INSERT INTO PAYMENT (type_id, student_id) VALUES
+    ((select id from PAYMENTTYPE WHERE name = 'WEEKLY'), (select id from Student WHERE name = 'Bob'));
+
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Chris'), (select id from Subject where name='Art'), 8);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Oliver'), (select id from Subject where name='History'), 5);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='James'), (select id from Subject where name='Geography'), 9);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Jacob'), (select id from Subject where name='Math'), 4);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Logan'), (select id from Subject where name='PE'), 9);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Ava'), (select id from Subject where name='Computer Science'), 9);
+INSERT INTO MARK (student_id, subject_id, mark) VALUES ( (select id from Student where name='Anna'), (select id from Subject where name='Web Development'), 9);
