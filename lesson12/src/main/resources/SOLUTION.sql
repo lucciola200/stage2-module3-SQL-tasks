@@ -7,4 +7,4 @@ DELETE FROM Mark WHERE student_id NOT IN (SELECT id FROM Student);
 DELETE FROM PaymentType WHERE name = 'Daily';
 DELETE FROM Payment WHERE type_id NOT IN (SELECT id FROM PaymentType);
 DELETE FROM Mark WHERE student_id NOT IN (SELECT id FROM Student);
-DELETE FROM Mark WHERE mark < 7;
+DELETE FROM mark WHERE mark in (0,6);
