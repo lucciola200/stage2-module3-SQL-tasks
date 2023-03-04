@@ -1,0 +1,10 @@
+DELETE FROM Student WHERE grade >= 4;
+DELETE FROM Payment WHERE student_id NOT IN (SELECT id FROM Student);
+DELETE FROM Mark WHERE student_id NOT IN (SELECT id FROM Student);
+DELETE FROM Student WHERE id IN (SELECT student_id FROM Mark WHERE mark < 4);
+DELETE FROM Payment WHERE student_id NOT IN (SELECT id FROM Student);
+DELETE FROM Mark WHERE student_id NOT IN (SELECT id FROM Student);
+DELETE FROM PaymentType WHERE name = 'Daily';
+DELETE FROM Payment WHERE type_id NOT IN (SELECT id FROM PaymentType);
+DELETE FROM Mark WHERE student_id NOT IN (SELECT id FROM Student);
+DELETE FROM Mark WHERE mark < 7;
