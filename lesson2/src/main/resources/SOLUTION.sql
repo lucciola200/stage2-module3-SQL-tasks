@@ -5,14 +5,5 @@ INSERT INTO Student (id, name, birthday, groupnumber) VALUES (10, 'Emily', '2002
 INSERT INTO Student (id, name, birthday, groupnumber) VALUES (13, 'Mia', '2001-05-01', 5), (14, 'Noah', '2001-05-02', 5), (15, 'Sophia', '2001-05-03', 5);
 INSERT INTO Subject (id, name, description, grade) VALUES (1, 'Art', 'Art and music for 1 grade', 1), (2, 'Geography', 'Geography and history for 2 grade', 2), (3, 'PE', 'PE and math for 3 grade', 3), (4, 'Science', 'Science and IT for 4 grade', 4), (5, 'Music', 'Music for 5 grade', 5), (6, 'Literature', 'Literature for 5 grade', 5);
 INSERT INTO PaymentType (id, name) VALUES (1, 'DAILY'), (2, 'WEEKLY'), (3, 'MONTHLY');
-INSERT INTO Payment (id, type_id, amount, student_id, payment_date) SELECT 1, 2, 100, s.id, NOW() FROM Student s WHERE s.name = 'John';
-INSERT INTO Payment (id, type_id, amount, student_id, payment_date) SELECT 2, 3, 200, s.id, NOW() FROM Student s WHERE s.name = 'Oliver';
-INSERT INTO Payment (id, type_id, amount, student_id, payment_date) SELECT 3, 2, 150, s.id, NOW() FROM Student s WHERE s.name = 'Henry';
-INSERT INTO Payment (id, type_id, amount, student_id, payment_date) SELECT 4, 1, 50, s.id, NOW() FROM Student s WHERE s.name = 'James';
 INSERT INTO Payment (id, type_id, amount, student_id, payment_date) VALUES(5, 1, 200.00, 1, '2022-01-05'), (6, 2, 300.00, 2, '2022-01-06'), (7, 3, 250.00, 7, '2022-01-07'), (8, 1, 100.00, 5, '2022-01-08');
-INSERT INTO Mark (student_id, subject_id, mark) SELECT s.id, sub.id, 8 FROM Student s, Subject sub WHERE s.name = 'Chris' AND sub.name = 'Art';
-INSERT INTO Mark (student_id, subject_id, mark) SELECT s.id, sub.id, 5 FROM Student s, Subject sub WHERE s.name = 'Oliver' AND sub.name = 'History';
-INSERT INTO Mark (student_id, subject_id, mark) SELECT s.id, sub.id, 9 FROM Student s, Subject sub WHERE s.name = 'James' AND sub.name = 'Geography';
-INSERT INTO Mark (student_id, subject_id, mark) SELECT s.id, sub.id, 4 FROM Student s, Subject sub WHERE s.name = 'Jacob' AND sub.name = 'Math';
-INSERT INTO Mark (student_id, subject_id, mark) SELECT s.id, sub.id, 9 FROM Student s, Subject sub WHERE s.name = 'Logan' AND sub.name = 'PE';
-
+INSERT INTO mark(id, student_id, subject_id, mark) VALUES (1,2,1,8),(2,4,4,5),(3,5,3,9),(4,8,6,4),(5,9,5 ,9),

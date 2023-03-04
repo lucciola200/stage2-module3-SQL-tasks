@@ -1998,3 +1998,4 @@ insert into student (name, birthday, groupnumber) values ('Britte Larchier', '20
 insert into student (name, birthday, groupnumber) values ('Darice Toppin', '2001-08-29', 10);
 insert into student (name, birthday, groupnumber) values ('Christoforo Durden', '1998-08-23', 6);
 insert into student (name, birthday, groupnumber) values ('Parnell Bicheno', '1951-10-26', 3);
+insert into student (name, birthday, groupnumber) values ('Parnell Bicheno2', '1951-10-26', 6);
